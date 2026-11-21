@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import { Home, Calendar, MapPin, Users, User } from "lucide-react";
 
 const navItems = [
-  { to: "/", label: "Home", icon: Home },
-  { to: "/schedule", label: "Schedule", icon: Calendar },
-  { to: "/circuits", label: "Circuits", icon: MapPin },
-  { to: "/teams", label: "Teams", icon: Users },
-  { to: "/profile", label: "Profile", icon: User },
+  { to: "/", label: "Beranda", icon: Home },
+  { to: "/schedule", label: "Jadwal", icon: Calendar },
+  { to: "/circuits", label: "Sirkuit", icon: MapPin },
+  { to: "/teams", label: "Tim", icon: Users },
+  { to: "/profile", label: "Profil", icon: User },
 ];
 
 export default function BottomNav() {

@@ -57,6 +57,7 @@ const DEFAULT_PREFS = {
   favoriteTeamId: 1,
   favoriteDriverName: "Charles Leclerc",
   driverNumber: "45",
+  avatarDataUrl: "",
 };
 
 export function getProfilePrefs() {

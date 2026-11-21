@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarPlus, ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
 import { getCircuits } from "../services/api";
+import CountryFlag from "../components/CountryFlag";
 import CircuitScheduleCard from "../components/CircuitScheduleCard";
 import { downloadIcsForCircuits } from "../utils/ics";
 
@@ -167,7 +168,7 @@ export default function Schedule() {
                   </div>
 
                   <h2 className="text-base font-extrabold text-white mt-1 flex items-center gap-1.5">
-                    <span>{circuit.country_flag}</span>
+                    <CountryFlag flag={circuit.country_flag} size="sm" />
                     <span className="truncate">{circuit.gp_name}</span>
                   </h2>
                   <p className="text-xs text-zinc-400 truncate mt-0.5">

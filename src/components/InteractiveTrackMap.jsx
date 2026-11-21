@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CountryFlag from "./CountryFlag";
 import {
   Gauge,
   HelpCircle,
@@ -72,7 +73,7 @@ export default function InteractiveTrackMap({ circuit, onOpenInfo }) {
             On 2026 calendar
           </span>
           {circuit.country_flag && (
-            <span className="text-base leading-none">{circuit.country_flag}</span>
+            <CountryFlag flag={circuit.country_flag} size="sm" showCode />
           )}
         </div>
         <div className="flex items-center gap-1.5">

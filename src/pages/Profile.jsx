@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Activity,
+  Camera,
   Code2,
   Download,
   ExternalLink,
@@ -8,6 +9,7 @@ import {
   Heart,
   Info,
   RefreshCw,
+  RotateCcw,
   Server,
   ShieldCheck,
   Wifi,
@@ -29,6 +31,35 @@ import {
   triggerPwaInstall,
 } from "../utils/pwaInstall";
 
+function resizeImageToDataUrl(file, size = 256) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.type.startsWith("image/")) {
+      reject(new Error("Pilih file gambar (JPG, PNG, atau WebP)."));
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Gagal membaca file gambar."));
+    reader.onload = () => {
+      const img = new Image();
+      img.onerror = () => reject(new Error("Format gambar tidak didukung."));
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        const minSide = Math.min(img.width, img.height);
+        const sx = (img.width - minSide) / 2;
+        const sy = (img.height - minSide) / 2;
+        ctx.drawImage(img, sx, sy, minSide, minSide, 0, 0, size, size);
+        resolve(canvas.toDataURL("image/jpeg", 0.85));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function Profile() {
   const [teams, setTeams] = useState(FULL_TEAMS_2026);
   const [prefs, setPrefs] = useState(getProfilePrefs);
@@ -42,6 +73,8 @@ export default function Profile() {
   });
   const [pwaState, setPwaState] = useState(getPwaInstallState);
   const [installMessage, setInstallMessage] = useState("");
+  const [avatarError, setAvatarError] = useState("");
+  const fileInputRef = useRef(null);
   const swSupported =
     typeof navigator !== "undefined" && "serviceWorker" in navigator;
 
@@ -118,6 +151,20 @@ export default function Profile() {
     });
   };
 
+  const handleAvatarUpload = async (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+
+    setAvatarError("");
+    try {
+      const dataUrl = await resizeImageToDataUrl(file);
+      saveProfilePrefs({ avatarDataUrl: dataUrl });
+    } catch (err) {
+      setAvatarError(err.message || "Gagal memproses foto.");
+    }
+  };
+
   const handleInstallClick = async () => {
     const result = await triggerPwaInstall();
     if (result.outcome === "unavailable") {
@@ -167,57 +214,91 @@ export default function Profile() {
         {/* Identity Body */}
         <div className="p-4 space-y-4">
           <div className="flex items-center gap-4">
-            {/* Custom Developer Driver Avatar SVG */}
-            <div
-              className="w-20 h-20 rounded-2xl border-2 overflow-hidden shrink-0 bg-[#111116] relative"
+            {/* Hidden Local File Input for Profile Picture */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleAvatarUpload}
+              className="hidden"
+            />
+
+            {/* Profile Picture (Uploaded Photo or Default Driver Helmet SVG) */}
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              title="Ubah foto profil"
+              aria-label="Ubah foto profil"
+              className="w-20 h-20 rounded-2xl border-2 overflow-hidden shrink-0 bg-[#111116] relative group focus:outline-none"
               style={{ borderColor: accentColor }}
             >
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <defs>
-                  <linearGradient id="pass-bg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor={accentColor} stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="#111116" />
-                  </linearGradient>
-                </defs>
-                <rect width="100" height="100" fill="url(#pass-bg)" />
-                <path
-                  d="M14 100 C18 74 34 66 50 66 C66 66 82 74 86 100 Z"
-                  fill="#1f1f29"
-                  stroke={accentColor}
-                  strokeWidth="2.5"
-                />
-                <circle
-                  cx="50"
-                  cy="42"
-                  r="22"
-                  fill="#f4f4f5"
-                  stroke={accentColor}
-                  strokeWidth="2.5"
-                />
-                <path
-                  d="M30 37 Q50 25 70 37"
-                  fill="none"
-                  stroke={accentColor}
-                  strokeWidth="4.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M32 39 Q50 36 68 39 L66 50 Q50 53 34 50 Z"
-                  fill="#09090d"
-                />
-                <text
-                  x="88"
-                  y="24"
-                  textAnchor="end"
-                  fontSize="16"
-                  fontWeight="900"
-                  fontStyle="italic"
-                  fill={accentColor}
-                >
-                  #{prefs.driverNumber || "45"}
-                </text>
-              </svg>
-            </div>
+              {prefs.avatarDataUrl ? (
+                <>
+                  <img
+                    src={prefs.avatarDataUrl}
+                    alt="Foto Profil"
+                    className="w-full h-full object-cover"
+                  />
+                  <span
+                    className="absolute top-1 right-1.5 text-[11px] font-black italic drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]"
+                    style={{ color: accentColor }}
+                  >
+                    #{prefs.driverNumber || "45"}
+                  </span>
+                </>
+              ) : (
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="pass-bg" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor={accentColor} stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#111116" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="100" height="100" fill="url(#pass-bg)" />
+                  <path
+                    d="M14 100 C18 74 34 66 50 66 C66 66 82 74 86 100 Z"
+                    fill="#1f1f29"
+                    stroke={accentColor}
+                    strokeWidth="2.5"
+                  />
+                  <circle
+                    cx="50"
+                    cy="42"
+                    r="22"
+                    fill="#f4f4f5"
+                    stroke={accentColor}
+                    strokeWidth="2.5"
+                  />
+                  <path
+                    d="M30 37 Q50 25 70 37"
+                    fill="none"
+                    stroke={accentColor}
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M32 39 Q50 36 68 39 L66 50 Q50 53 34 50 Z"
+                    fill="#09090d"
+                  />
+                  <text
+                    x="88"
+                    y="24"
+                    textAnchor="end"
+                    fontSize="16"
+                    fontWeight="900"
+                    fontStyle="italic"
+                    fill={accentColor}
+                  >
+                    #{prefs.driverNumber || "45"}
+                  </text>
+                </svg>
+              )}
+
+              {/* Camera Upload Overlay Badge */}
+              <span className="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-black/75 border border-white/25 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                <Camera className="w-3 h-3" />
+              </span>
+            </button>
 
             <div className="min-w-0 flex-1">
               <span
@@ -395,6 +476,31 @@ export default function Profile() {
               className="w-full px-3 py-2 rounded-xl bg-[#111116] border border-zinc-800 text-xs font-mono font-bold text-center text-white focus:outline-none focus:border-[#E10600]"
             />
           </div>
+        </div>
+        <div className="flex items-center justify-between gap-2 pt-1">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#111116] border border-zinc-800 hover:border-zinc-600 text-xs font-semibold text-zinc-200 transition"
+            >
+              <Camera className="w-3.5 h-3.5 text-[#E10600]" />
+              {prefs.avatarDataUrl ? "Ganti Foto Profil" : "Upload Foto Profil"}
+            </button>
+            {prefs.avatarDataUrl && (
+              <button
+                type="button"
+                onClick={() => saveProfilePrefs({ avatarDataUrl: "" })}
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-zinc-800/70 hover:bg-zinc-800 text-[11px] font-semibold text-zinc-300 transition"
+              >
+                <RotateCcw className="w-3 h-3" />
+                Reset
+              </button>
+            )}
+          </div>
+          {avatarError && (
+            <span className="text-[11px] text-red-400">{avatarError}</span>
+          )}
         </div>
       </section>
 

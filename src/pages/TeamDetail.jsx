@@ -9,6 +9,7 @@ import {
   Star,
 } from "lucide-react";
 import { getTeamById } from "../services/api";
+import CountryFlag from "../components/CountryFlag";
 import {
   isTeamSaved,
   toggleSavedTeam,
@@ -205,7 +206,7 @@ export default function TeamDetail() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-2">
                     <span
                       className="text-2xl font-black tracking-tighter text-transparent"
                       style={{
@@ -215,12 +216,12 @@ export default function TeamDetail() {
                       {driver.number}
                     </span>
                     {driver.flag && (
-                      <span
-                        className="text-lg leading-none drop-shadow"
-                        aria-label="Flag"
-                      >
-                        {driver.flag}
-                      </span>
+                      <CountryFlag
+                        flag={driver.flag}
+                        size="sm"
+                        showName
+                        className="drop-shadow-xs"
+                      />
                     )}
                   </div>
                 </div>

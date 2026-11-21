@@ -5,3 +5,17 @@ body {
   background-color: #111115;
   color: #f4f4f5;
 }
+
+.bg-telemetry-pattern {
+  background-color: #111115;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(225, 6, 0, 0.02) 0px,
+      rgba(225, 6, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  background-size: 20px 20px, 28px 28px;
+}

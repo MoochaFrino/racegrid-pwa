@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Search, Star } from "lucide-react";
 import { getTeams } from "../services/api";
+import CountryFlag from "../components/CountryFlag";
 import {
   getSavedTeams,
   toggleSavedTeam,
@@ -192,11 +193,13 @@ export default function Teams() {
                           parts: d1,
                           img: team.driver_1_image,
                           name: team.driver_1_name,
+                          flag: team.driver_1_flag,
                         },
                         {
                           parts: d2,
                           img: team.driver_2_image,
                           name: team.driver_2_name,
+                          flag: team.driver_2_flag,
                         },
                       ].map((drv) => (
                         <span
@@ -210,6 +213,7 @@ export default function Teams() {
                               className="w-5 h-5 rounded-full object-cover object-top bg-black/35 border border-white/30"
                             />
                           )}
+                          <CountryFlag flag={drv.flag} size="xs" />
                           <span>
                             {drv.parts.first}{" "}
                             <strong className="uppercase font-extrabold">

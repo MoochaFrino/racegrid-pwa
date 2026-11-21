@@ -12,7 +12,7 @@ import Profile from "./pages/Profile";
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#111115] text-zinc-100 pb-20">
+      <div className="min-h-screen bg-[#111115] bg-telemetry-pattern text-zinc-100 pb-20">
         <OfflineBanner />
         <main className="max-w-md mx-auto px-4 py-4">
           <Routes>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Search, ChevronRight, Star, Zap } from "lucide-react";
 import { getCircuits } from "../services/api";
+import CountryFlag from "../components/CountryFlag";
 import {
   getSavedCircuits,
   toggleSavedCircuit,
@@ -159,7 +160,7 @@ export default function Circuits() {
               <div className="p-4 flex items-center justify-between">
                 <div className="min-w-0 pr-2">
                   <p className="text-xs font-semibold text-[#E10600] uppercase flex items-center gap-1.5">
-                    <span>{circuit.country_flag}</span>
+                    <CountryFlag flag={circuit.country_flag} size="xs" />
                     <span className="truncate">{circuit.gp_name}</span>
                   </p>
                   <h2 className="font-bold text-base mt-0.5 truncate">
