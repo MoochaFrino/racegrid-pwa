@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["pwa-192x192.png", "pwa-512x512.png"],
+      includeAssets: ["pwa-192x192.png", "pwa-512x512.png", "images/**/*"],
       manifest: {
         name: "RaceGrid - F1 Circuits & Teams",
         short_name: "RaceGrid",
@@ -33,6 +33,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,webp,jpg,jpeg}"],
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.pathname.startsWith("/api/"),
