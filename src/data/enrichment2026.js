@@ -14,8 +14,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 58,
     "corners": 14,
     "first_gp": 1996,
-    "drs_zones": 3,
-    "straight_mode_zones_count": 3,
+    "drs_zones": 5,
+    "straight_mode_zones_count": 5,
     "lap_record": "1:19.813 (Charles Leclerc)",
     "lap_record_time": "1:19.813",
     "lap_record_driver": "Charles Leclerc",
@@ -33,30 +33,48 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "aus-sm-1",
-        "name": "Main Straight (Start/Finish)",
+        "name": "Main Straight (Turn 14 -> Turn 1)",
         "length_m": 810,
-        "top_speed_kmh": 332,
+        "top_speed_kmh": 334,
         "activation_point": "Turn 14 -> Turn 1",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 58,
+        "hotspot_pct_y": 88
       },
       {
         "id": "aus-sm-2",
-        "name": "Lakeside Drive (To Turn 3)",
-        "length_m": 740,
-        "top_speed_kmh": 328,
+        "name": "Lakeside Approach (Turn 2 -> Turn 3)",
+        "length_m": 680,
+        "top_speed_kmh": 326,
         "activation_point": "Turn 2 -> Turn 3",
-        "hotspot_pct_x": 28,
-        "hotspot_pct_y": 60
+        "hotspot_pct_x": 23,
+        "hotspot_pct_y": 79
       },
       {
         "id": "aus-sm-3",
-        "name": "Lakeside High-Speed Sweep",
-        "length_m": 980,
-        "top_speed_kmh": 338,
-        "activation_point": "Turn 8 -> Turn 9",
-        "hotspot_pct_x": 72,
+        "name": "Augie Straight (Turn 5 -> Turn 6)",
+        "length_m": 540,
+        "top_speed_kmh": 314,
+        "activation_point": "Turn 5 -> Turn 6",
+        "hotspot_pct_x": 8,
         "hotspot_pct_y": 34
+      },
+      {
+        "id": "aus-sm-4",
+        "name": "Lakeside Drive Curve (Turn 8 -> Turn 9)",
+        "length_m": 1120,
+        "top_speed_kmh": 344,
+        "activation_point": "Turn 8 -> Turn 9",
+        "hotspot_pct_x": 41,
+        "hotspot_pct_y": 38
+      },
+      {
+        "id": "aus-sm-5",
+        "name": "Back Lakeside Straight (Turn 10 -> Turn 11)",
+        "length_m": 790,
+        "top_speed_kmh": 332,
+        "activation_point": "Turn 10 -> Turn 11",
+        "hotspot_pct_x": 80,
+        "hotspot_pct_y": 45
       }
     ],
     "sessions": [
@@ -102,8 +120,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 56,
     "corners": 16,
     "first_gp": 2004,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:32.238 (Michael Schumacher)",
     "lap_record_time": "1:32.238",
     "lap_record_driver": "Michael Schumacher",
@@ -121,21 +139,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "chn-sm-1",
-        "name": "Back Straight (To Turn 14 Hairpin)",
-        "length_m": 1170,
-        "top_speed_kmh": 352,
-        "activation_point": "Turn 13 -> Turn 14",
-        "hotspot_pct_x": 68,
-        "hotspot_pct_y": 45
+        "name": "Main Pit Straight (Turn 16 -> Turn 1)",
+        "length_m": 780,
+        "top_speed_kmh": 332,
+        "activation_point": "Turn 16 -> Turn 1",
+        "hotspot_pct_x": 41,
+        "hotspot_pct_y": 43
       },
       {
         "id": "chn-sm-2",
-        "name": "Main Straight (Pit Lane)",
-        "length_m": 750,
-        "top_speed_kmh": 330,
-        "activation_point": "Turn 16 -> Turn 1",
-        "hotspot_pct_x": 45,
-        "hotspot_pct_y": 86
+        "name": "Sector 1 Straight (Turn 4 -> Turn 6)",
+        "length_m": 590,
+        "top_speed_kmh": 318,
+        "activation_point": "Turn 4 -> Turn 6",
+        "hotspot_pct_x": 68,
+        "hotspot_pct_y": 24
+      },
+      {
+        "id": "chn-sm-3",
+        "name": "Intermediate Straight (Turn 10 -> Turn 11)",
+        "length_m": 640,
+        "top_speed_kmh": 322,
+        "activation_point": "Turn 10 -> Turn 11",
+        "hotspot_pct_x": 67,
+        "hotspot_pct_y": 81
+      },
+      {
+        "id": "chn-sm-4",
+        "name": "1.17km Back Straight (Turn 13 -> Turn 14)",
+        "length_m": 1170,
+        "top_speed_kmh": 354,
+        "activation_point": "Turn 13 -> Turn 14",
+        "hotspot_pct_x": 48,
+        "hotspot_pct_y": 91
       }
     ],
     "sessions": [
@@ -200,21 +236,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "suz-sm-1",
-        "name": "Main Straight (Control Line)",
-        "length_m": 700,
-        "top_speed_kmh": 332,
-        "activation_point": "Exit Casio Triangle -> Turn 1",
-        "hotspot_pct_x": 72,
-        "hotspot_pct_y": 70
+        "name": "Main Downhill Straight (Turn 18 -> Turn 1)",
+        "length_m": 720,
+        "top_speed_kmh": 334,
+        "activation_point": "Turn 18 -> Turn 1",
+        "hotspot_pct_x": 80,
+        "hotspot_pct_y": 50
       },
       {
         "id": "suz-sm-2",
-        "name": "West Back Straight (To 130R)",
-        "length_m": 920,
-        "top_speed_kmh": 345,
-        "activation_point": "Exit Spoon Curve -> 130R",
-        "hotspot_pct_x": 36,
-        "hotspot_pct_y": 45
+        "name": "West Back Straight (Turn 14 -> Turn 15 130R)",
+        "length_m": 940,
+        "top_speed_kmh": 346,
+        "activation_point": "Turn 14 (Spoon) -> Turn 15 (130R)",
+        "hotspot_pct_x": 22,
+        "hotspot_pct_y": 36
       }
     ],
     "sessions": [
@@ -279,30 +315,30 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "mia-sm-1",
-        "name": "Back Straight (To Turn 17)",
-        "length_m": 1280,
-        "top_speed_kmh": 348,
-        "activation_point": "Turn 16 -> Turn 17",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 84
+        "name": "Start/Finish Pit Straight (Turn 19 -> Turn 1)",
+        "length_m": 680,
+        "top_speed_kmh": 324,
+        "activation_point": "Turn 19 -> Turn 1",
+        "hotspot_pct_x": 48,
+        "hotspot_pct_y": 40
       },
       {
         "id": "mia-sm-2",
-        "name": "North Boulevard Straight (To Turn 11)",
-        "length_m": 920,
-        "top_speed_kmh": 336,
+        "name": "South Twist Straight (Turn 8 -> Turn 11)",
+        "length_m": 1050,
+        "top_speed_kmh": 342,
         "activation_point": "Turn 8 -> Turn 11",
-        "hotspot_pct_x": 56,
-        "hotspot_pct_y": 22
+        "hotspot_pct_x": 58,
+        "hotspot_pct_y": 78
       },
       {
         "id": "mia-sm-3",
-        "name": "Main Pit Straight",
-        "length_m": 680,
-        "top_speed_kmh": 320,
-        "activation_point": "Turn 19 -> Turn 1",
-        "hotspot_pct_x": 32,
-        "hotspot_pct_y": 74
+        "name": "1.28km Back Straight (Turn 16 -> Turn 17)",
+        "length_m": 1280,
+        "top_speed_kmh": 352,
+        "activation_point": "Turn 16 -> Turn 17",
+        "hotspot_pct_x": 51,
+        "hotspot_pct_y": 21
       }
     ],
     "sessions": [
@@ -348,8 +384,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 70,
     "corners": 14,
     "first_gp": 1978,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 3,
+    "straight_mode_zones_count": 3,
     "lap_record": "1:13.078 (Valtteri Bottas)",
     "lap_record_time": "1:13.078",
     "lap_record_driver": "Valtteri Bottas",
@@ -367,21 +403,30 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "can-sm-1",
-        "name": "Casino Straight (To Wall of Champions)",
-        "length_m": 1060,
-        "top_speed_kmh": 344,
-        "activation_point": "Turn 10 Hairpin -> Turn 13",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 72
+        "name": "Main Pit Straight (Turn 14 -> Turn 1)",
+        "length_m": 640,
+        "top_speed_kmh": 324,
+        "activation_point": "Turn 14 -> Turn 1",
+        "hotspot_pct_x": 78,
+        "hotspot_pct_y": 53
       },
       {
         "id": "can-sm-2",
-        "name": "Back Stretch (To Turn 10)",
-        "length_m": 780,
-        "top_speed_kmh": 330,
-        "activation_point": "Turn 7 -> Turn 10",
-        "hotspot_pct_x": 64,
-        "hotspot_pct_y": 42
+        "name": "Pont de la Concorde Straight (Turn 7 -> Turn 8)",
+        "length_m": 760,
+        "top_speed_kmh": 332,
+        "activation_point": "Turn 7 -> Turn 8",
+        "hotspot_pct_x": 38,
+        "hotspot_pct_y": 68
+      },
+      {
+        "id": "can-sm-3",
+        "name": "Casino Straight (Turn 10 -> Turn 13)",
+        "length_m": 1060,
+        "top_speed_kmh": 346,
+        "activation_point": "Turn 10 Hairpin -> Turn 13 Chicane",
+        "hotspot_pct_x": 37,
+        "hotspot_pct_y": 25
       }
     ],
     "sessions": [
@@ -446,12 +491,12 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "mon-sm-1",
-        "name": "Harbour Front Straight (Boulevard Albert 1er)",
+        "name": "Boulevard Albert 1er (Turn 19 -> Turn 1)",
         "length_m": 510,
         "top_speed_kmh": 296,
-        "activation_point": "Exit Antony Noghès -> Sainte Dévote",
-        "hotspot_pct_x": 22,
-        "hotspot_pct_y": 74
+        "activation_point": "Turn 19 (Antony Noghès) -> Turn 1 (Sainte Dévote)",
+        "hotspot_pct_x": 18,
+        "hotspot_pct_y": 36
       }
     ],
     "sessions": [
@@ -497,8 +542,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 66,
     "corners": 14,
     "first_gp": 1991,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:15.743 (Oscar Piastri)",
     "lap_record_time": "1:15.743",
     "lap_record_driver": "Oscar Piastri",
@@ -516,21 +561,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "bcn-sm-1",
-        "name": "Main Straight (Start/Finish)",
+        "name": "1.05km Main Straight (Turn 14 -> Turn 1)",
         "length_m": 1047,
-        "top_speed_kmh": 342,
+        "top_speed_kmh": 344,
         "activation_point": "Turn 14 -> Turn 1",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 58,
+        "hotspot_pct_y": 66
       },
       {
         "id": "bcn-sm-2",
-        "name": "Back Straight (To La Caixa)",
+        "name": "Renault Curve Exit (Turn 3 -> Turn 4)",
+        "length_m": 520,
+        "top_speed_kmh": 314,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 14,
+        "hotspot_pct_y": 45
+      },
+      {
+        "id": "bcn-sm-3",
+        "name": "Short Mid-Sector Straight (Turn 5 -> Turn 7)",
+        "length_m": 480,
+        "top_speed_kmh": 308,
+        "activation_point": "Turn 5 -> Turn 7",
+        "hotspot_pct_x": 30,
+        "hotspot_pct_y": 64
+      },
+      {
+        "id": "bcn-sm-4",
+        "name": "Back Straight (Turn 9 -> Turn 10)",
         "length_m": 760,
-        "top_speed_kmh": 326,
+        "top_speed_kmh": 328,
         "activation_point": "Turn 9 -> Turn 10",
-        "hotspot_pct_x": 58,
-        "hotspot_pct_y": 32
+        "hotspot_pct_x": 64,
+        "hotspot_pct_y": 34
       }
     ],
     "sessions": [
@@ -576,8 +639,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 71,
     "corners": 10,
     "first_gp": 1970,
-    "drs_zones": 3,
-    "straight_mode_zones_count": 3,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:07.924 (Oscar Piastri)",
     "lap_record_time": "1:07.924",
     "lap_record_driver": "Oscar Piastri",
@@ -589,36 +652,45 @@ export const FULL_CIRCUITS_2026 = [
     "weekend_label": "26 - 28 JUN",
     "start_date_iso": "2026-06-26T00:00:00.000Z",
     "end_date_iso": "2026-06-28T23:59:59.999Z",
-    "description": "Sirkuit pegunungan Styria berdurasi lap terpendek dengan tiga zona Straight Mode beruntun di tanjakan tajam.",
+    "description": "Sirkuit pegunungan Styria berdurasi lap terpendek dengan empat zona Straight Mode beruntun di tanjakan tajam.",
     "image_url": "/images/circuits/austria.jpg",
     "map_image_url": "/images/circuits/austria-map.webp",
     "straight_mode_zones": [
       {
         "id": "aut-sm-1",
-        "name": "Uphill Straight (To Turn 3 Remus)",
-        "length_m": 890,
-        "top_speed_kmh": 340,
-        "activation_point": "Turn 1 -> Turn 3",
-        "hotspot_pct_x": 30,
-        "hotspot_pct_y": 36
+        "name": "Start/Finish Straight (Turn 10 -> Turn 1)",
+        "length_m": 690,
+        "top_speed_kmh": 326,
+        "activation_point": "Turn 10 -> Turn 1",
+        "hotspot_pct_x": 68,
+        "hotspot_pct_y": 77
       },
       {
         "id": "aut-sm-2",
-        "name": "Schlossgold Straight (To Turn 4)",
-        "length_m": 810,
-        "top_speed_kmh": 334,
-        "activation_point": "Turn 3 -> Turn 4",
-        "hotspot_pct_x": 60,
-        "hotspot_pct_y": 26
+        "name": "Styrian Uphill Straight (Turn 1 -> Turn 3)",
+        "length_m": 910,
+        "top_speed_kmh": 342,
+        "activation_point": "Turn 1 -> Turn 3 (Remus)",
+        "hotspot_pct_x": 26,
+        "hotspot_pct_y": 52
       },
       {
         "id": "aut-sm-3",
-        "name": "Main Start/Finish Straight",
-        "length_m": 670,
-        "top_speed_kmh": 324,
-        "activation_point": "Turn 10 -> Turn 1",
-        "hotspot_pct_x": 45,
-        "hotspot_pct_y": 82
+        "name": "Schlossgold Straight (Turn 3 -> Turn 4)",
+        "length_m": 820,
+        "top_speed_kmh": 338,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 33,
+        "hotspot_pct_y": 8
+      },
+      {
+        "id": "aut-sm-4",
+        "name": "Rindt Approach Straight (Turn 8 -> Turn 9)",
+        "length_m": 610,
+        "top_speed_kmh": 320,
+        "activation_point": "Turn 8 -> Turn 9",
+        "hotspot_pct_x": 69,
+        "hotspot_pct_y": 35
       }
     ],
     "sessions": [
@@ -664,8 +736,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 52,
     "corners": 18,
     "first_gp": 1950,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:27.097 (Max Verstappen)",
     "lap_record_time": "1:27.097",
     "lap_record_driver": "Max Verstappen",
@@ -683,21 +755,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "sil-sm-1",
-        "name": "Wellington Straight",
-        "length_m": 720,
-        "top_speed_kmh": 334,
-        "activation_point": "Exit Aintree -> Brooklands",
-        "hotspot_pct_x": 34,
-        "hotspot_pct_y": 36
+        "name": "Hamilton Straight (Turn 18 -> Turn 1)",
+        "length_m": 580,
+        "top_speed_kmh": 322,
+        "activation_point": "Turn 18 (Club) -> Turn 1 (Abbey)",
+        "hotspot_pct_x": 37,
+        "hotspot_pct_y": 13
       },
       {
         "id": "sil-sm-2",
-        "name": "Hangar Straight",
+        "name": "Wellington Straight (Turn 5 -> Turn 6)",
+        "length_m": 750,
+        "top_speed_kmh": 334,
+        "activation_point": "Turn 5 (Aintree) -> Turn 6 (Brooklands)",
+        "hotspot_pct_x": 68,
+        "hotspot_pct_y": 56
+      },
+      {
+        "id": "sil-sm-3",
+        "name": "National Pit Straight (Turn 8 -> Turn 9)",
+        "length_m": 690,
+        "top_speed_kmh": 330,
+        "activation_point": "Turn 8 (Woodcote) -> Turn 9 (Copse)",
+        "hotspot_pct_x": 88,
+        "hotspot_pct_y": 38
+      },
+      {
+        "id": "sil-sm-4",
+        "name": "Hangar Straight (Turn 14 -> Turn 15)",
         "length_m": 890,
         "top_speed_kmh": 344,
-        "activation_point": "Exit Chapel Curve -> Stowe Corner",
-        "hotspot_pct_x": 74,
-        "hotspot_pct_y": 60
+        "activation_point": "Turn 14 (Chapel) -> Turn 15 (Stowe)",
+        "hotspot_pct_x": 25,
+        "hotspot_pct_y": 68
       }
     ],
     "sessions": [
@@ -743,8 +833,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 44,
     "corners": 19,
     "first_gp": 1950,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 5,
+    "straight_mode_zones_count": 5,
     "lap_record": "1:44.701 (Sergio Perez)",
     "lap_record_time": "1:44.701",
     "lap_record_driver": "Sergio Perez",
@@ -762,21 +852,48 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "spa-sm-1",
-        "name": "Kemmel Straight",
-        "length_m": 1050,
-        "top_speed_kmh": 356,
-        "activation_point": "Exit Raidillon -> Les Combes",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 22
+        "name": "Pit Straight (Turn 19 -> Turn 1)",
+        "length_m": 540,
+        "top_speed_kmh": 316,
+        "activation_point": "Turn 19 (Bus Stop) -> Turn 1 (La Source)",
+        "hotspot_pct_x": 22,
+        "hotspot_pct_y": 84
       },
       {
         "id": "spa-sm-2",
-        "name": "Start/Finish Straight",
-        "length_m": 620,
-        "top_speed_kmh": 326,
-        "activation_point": "Exit Bus Stop Chicane -> La Source",
-        "hotspot_pct_x": 20,
-        "hotspot_pct_y": 52
+        "name": "Eau Rouge Approach (Turn 1 -> Turn 2)",
+        "length_m": 590,
+        "top_speed_kmh": 324,
+        "activation_point": "Turn 1 (La Source) -> Turn 2 (Eau Rouge)",
+        "hotspot_pct_x": 18,
+        "hotspot_pct_y": 68
+      },
+      {
+        "id": "spa-sm-3",
+        "name": "Kemmel Straight (Turn 4 -> Turn 5)",
+        "length_m": 1050,
+        "top_speed_kmh": 356,
+        "activation_point": "Turn 4 (Raidillon) -> Turn 5 (Les Combes)",
+        "hotspot_pct_x": 50,
+        "hotspot_pct_y": 22
+      },
+      {
+        "id": "spa-sm-4",
+        "name": "Paul Frère Straight (Turn 15 -> Turn 16)",
+        "length_m": 790,
+        "top_speed_kmh": 338,
+        "activation_point": "Turn 15 (Stavelot) -> Turn 16",
+        "hotspot_pct_x": 68,
+        "hotspot_pct_y": 82
+      },
+      {
+        "id": "spa-sm-5",
+        "name": "Blanchimont Approach (Turn 17 -> Turn 18)",
+        "length_m": 640,
+        "top_speed_kmh": 332,
+        "activation_point": "Turn 17 (Blanchimont) -> Turn 18 (Chicane)",
+        "hotspot_pct_x": 42,
+        "hotspot_pct_y": 68
       }
     ],
     "sessions": [
@@ -822,8 +939,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 70,
     "corners": 14,
     "first_gp": 1986,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:16.627 (Lewis Hamilton)",
     "lap_record_time": "1:16.627",
     "lap_record_driver": "Lewis Hamilton",
@@ -841,21 +958,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "hun-sm-1",
-        "name": "Main Straight (Start/Finish)",
+        "name": "Main Straight (Turn 14 -> Turn 1)",
         "length_m": 908,
-        "top_speed_kmh": 330,
+        "top_speed_kmh": 332,
         "activation_point": "Turn 14 -> Turn 1",
-        "hotspot_pct_x": 42,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 28,
+        "hotspot_pct_y": 48
       },
       {
         "id": "hun-sm-2",
-        "name": "Sector 1 Short Straight (To Turn 2)",
-        "length_m": 520,
-        "top_speed_kmh": 312,
+        "name": "Downhill Straight (Turn 1 -> Turn 2)",
+        "length_m": 560,
+        "top_speed_kmh": 314,
         "activation_point": "Turn 1 -> Turn 2",
-        "hotspot_pct_x": 76,
-        "hotspot_pct_y": 70
+        "hotspot_pct_x": 36,
+        "hotspot_pct_y": 28
+      },
+      {
+        "id": "hun-sm-3",
+        "name": "Mansell Straight (Turn 3 -> Turn 4)",
+        "length_m": 640,
+        "top_speed_kmh": 322,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 53,
+        "hotspot_pct_y": 31
+      },
+      {
+        "id": "hun-sm-4",
+        "name": "Back Straight (Turn 11 -> Turn 12)",
+        "length_m": 520,
+        "top_speed_kmh": 310,
+        "activation_point": "Turn 11 -> Turn 12",
+        "hotspot_pct_x": 49,
+        "hotspot_pct_y": 92
       }
     ],
     "sessions": [
@@ -920,21 +1055,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "ned-sm-1",
-        "name": "Main Straight (From Banked Final Turn)",
+        "name": "Main Straight (Turn 14 -> Turn 1)",
         "length_m": 780,
         "top_speed_kmh": 332,
-        "activation_point": "Turn 14 -> Tarzanbocht",
-        "hotspot_pct_x": 30,
-        "hotspot_pct_y": 78
+        "activation_point": "Turn 14 (Arie Luyendyk) -> Turn 1 (Tarzan)",
+        "hotspot_pct_x": 28,
+        "hotspot_pct_y": 48
       },
       {
         "id": "ned-sm-2",
-        "name": "Back Straight (To Turn 11)",
+        "name": "Dune Back Straight (Turn 10 -> Turn 11)",
         "length_m": 620,
         "top_speed_kmh": 318,
-        "activation_point": "Turn 10 -> Turn 11",
-        "hotspot_pct_x": 72,
-        "hotspot_pct_y": 38
+        "activation_point": "Turn 10 -> Turn 11 (Hans Ernst)",
+        "hotspot_pct_x": 55,
+        "hotspot_pct_y": 53
       }
     ],
     "sessions": [
@@ -980,8 +1115,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 53,
     "corners": 11,
     "first_gp": 1950,
-    "drs_zones": 3,
-    "straight_mode_zones_count": 3,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:20.901 (Lando Norris)",
     "lap_record_time": "1:20.901",
     "lap_record_driver": "Lando Norris",
@@ -999,30 +1134,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "monza-sm-1",
-        "name": "Main Straight (Rettifilo)",
+        "name": "Rettifilo Main Straight (Turn 11 -> Turn 1)",
         "length_m": 1150,
         "top_speed_kmh": 362,
-        "activation_point": "Exit Parabolica -> Variante del Rettifilo",
-        "hotspot_pct_x": 62,
+        "activation_point": "Turn 11 (Parabolica) -> Turn 1 (Rettifilo)",
+        "hotspot_pct_x": 64,
         "hotspot_pct_y": 92
       },
       {
         "id": "monza-sm-2",
-        "name": "Curva del Serraglio (To Ascari)",
-        "length_m": 850,
-        "top_speed_kmh": 348,
-        "activation_point": "Exit Lesmo 2 -> Variante Ascari",
-        "hotspot_pct_x": 34,
-        "hotspot_pct_y": 42
+        "name": "Curva Grande Approach (Turn 3 -> Turn 4)",
+        "length_m": 690,
+        "top_speed_kmh": 340,
+        "activation_point": "Turn 3 (Biassono) -> Turn 4 (Roggia)",
+        "hotspot_pct_x": 11,
+        "hotspot_pct_y": 56
       },
       {
         "id": "monza-sm-3",
-        "name": "Back Straight (To Parabolica)",
-        "length_m": 940,
-        "top_speed_kmh": 352,
-        "activation_point": "Exit Ascari -> Curva Alboreto",
-        "hotspot_pct_x": 72,
-        "hotspot_pct_y": 66
+        "name": "Curva del Serraglio (Turn 7 -> Turn 8)",
+        "length_m": 860,
+        "top_speed_kmh": 348,
+        "activation_point": "Turn 7 (Lesmo 2) -> Turn 8 (Ascari)",
+        "hotspot_pct_x": 34,
+        "hotspot_pct_y": 38
+      },
+      {
+        "id": "monza-sm-4",
+        "name": "Back Straight (Turn 10 -> Turn 11)",
+        "length_m": 950,
+        "top_speed_kmh": 354,
+        "activation_point": "Turn 10 (Ascari Exit) -> Turn 11 (Parabolica)",
+        "hotspot_pct_x": 74,
+        "hotspot_pct_y": 70
       }
     ],
     "sessions": [
@@ -1087,21 +1231,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "mad-sm-1",
-        "name": "IFEMA Main Boulevard",
-        "length_m": 830,
-        "top_speed_kmh": 338,
-        "activation_point": "Final Corner -> Turn 1 IFEMA",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 86
+        "name": "IFEMA Main Straight (Turn 22 -> Turn 1)",
+        "length_m": 760,
+        "top_speed_kmh": 334,
+        "activation_point": "Turn 22 -> Turn 1",
+        "hotspot_pct_x": 18,
+        "hotspot_pct_y": 68
       },
       {
         "id": "mad-sm-2",
-        "name": "Valdebebas High-Speed Link",
-        "length_m": 950,
-        "top_speed_kmh": 346,
-        "activation_point": "Exit La Monumental Banked Turn -> Chicane",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 24
+        "name": "North Highway Link (Turn 3 -> Turn 4)",
+        "length_m": 890,
+        "top_speed_kmh": 344,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 24,
+        "hotspot_pct_y": 22
       }
     ],
     "sessions": [
@@ -1166,21 +1310,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "aze-sm-1",
-        "name": "Main Straight (2.2km Waterfront)",
+        "name": "2.2km Caspian Main Straight (Turn 19 -> Turn 1)",
         "length_m": 2150,
-        "top_speed_kmh": 360,
-        "activation_point": "Turn 16 -> Turn 1",
-        "hotspot_pct_x": 54,
-        "hotspot_pct_y": 86
+        "top_speed_kmh": 362,
+        "activation_point": "Turn 19 -> Turn 1",
+        "hotspot_pct_x": 62,
+        "hotspot_pct_y": 70
       },
       {
         "id": "aze-sm-2",
-        "name": "Boulevard Straight (To Turn 3)",
-        "length_m": 780,
-        "top_speed_kmh": 332,
+        "name": "Azadliq Avenue Straight (Turn 2 -> Turn 3)",
+        "length_m": 840,
+        "top_speed_kmh": 336,
         "activation_point": "Turn 2 -> Turn 3",
-        "hotspot_pct_x": 76,
-        "hotspot_pct_y": 58
+        "hotspot_pct_x": 79,
+        "hotspot_pct_y": 53
       }
     ],
     "sessions": [
@@ -1226,8 +1370,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 56,
     "corners": 15,
     "first_gp": 1999,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:34.080 (Sebastian Vettel)",
     "lap_record_time": "1:34.080",
     "lap_record_driver": "Sebastian Vettel",
@@ -1245,21 +1389,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "mal-sm-1",
-        "name": "Main Grandstand Straight",
+        "name": "Main Pit Straight (Turn 15 -> Turn 1)",
         "length_m": 925,
         "top_speed_kmh": 340,
         "activation_point": "Turn 15 -> Turn 1",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 44,
+        "hotspot_pct_y": 52
       },
       {
         "id": "mal-sm-2",
-        "name": "Back Straight (To Turn 15 Hairpin)",
+        "name": "Curved North Straight (Turn 3 -> Turn 4)",
+        "length_m": 680,
+        "top_speed_kmh": 328,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 37,
+        "hotspot_pct_y": 8
+      },
+      {
+        "id": "mal-sm-3",
+        "name": "South Straight (Turn 8 -> Turn 9)",
+        "length_m": 590,
+        "top_speed_kmh": 320,
+        "activation_point": "Turn 8 -> Turn 9",
+        "hotspot_pct_x": 66,
+        "hotspot_pct_y": 67
+      },
+      {
+        "id": "mal-sm-4",
+        "name": "Kuala Lumpur Back Straight (Turn 14 -> Turn 15)",
         "length_m": 920,
         "top_speed_kmh": 338,
         "activation_point": "Turn 14 -> Turn 15",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 68
+        "hotspot_pct_x": 46,
+        "hotspot_pct_y": 61
       }
     ],
     "sessions": [
@@ -1305,8 +1467,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 62,
     "corners": 19,
     "first_gp": 2008,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 5,
+    "straight_mode_zones_count": 5,
     "lap_record": "1:33.808 (Lewis Hamilton)",
     "lap_record_time": "1:33.808",
     "lap_record_driver": "Lewis Hamilton",
@@ -1324,21 +1486,48 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "sin-sm-1",
-        "name": "Raffles Boulevard",
-        "length_m": 740,
-        "top_speed_kmh": 328,
-        "activation_point": "Turn 5 -> Turn 7",
-        "hotspot_pct_x": 52,
-        "hotspot_pct_y": 28
+        "name": "Pit Straight (Turn 19 -> Turn 1)",
+        "length_m": 660,
+        "top_speed_kmh": 322,
+        "activation_point": "Turn 19 -> Turn 1",
+        "hotspot_pct_x": 88,
+        "hotspot_pct_y": 36
       },
       {
         "id": "sin-sm-2",
-        "name": "Esplanade Drive (New Back Straight)",
-        "length_m": 810,
-        "top_speed_kmh": 334,
-        "activation_point": "Turn 14 -> Turn 16",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 72
+        "name": "Raffles Boulevard (Turn 5 -> Turn 7)",
+        "length_m": 840,
+        "top_speed_kmh": 336,
+        "activation_point": "Turn 5 -> Turn 7",
+        "hotspot_pct_x": 60,
+        "hotspot_pct_y": 40
+      },
+      {
+        "id": "sin-sm-3",
+        "name": "St. Andrew's Road (Turn 9 -> Turn 10)",
+        "length_m": 560,
+        "top_speed_kmh": 314,
+        "activation_point": "Turn 9 -> Turn 10",
+        "hotspot_pct_x": 15,
+        "hotspot_pct_y": 48
+      },
+      {
+        "id": "sin-sm-4",
+        "name": "Esplanade Bridge (Turn 13 -> Turn 14)",
+        "length_m": 590,
+        "top_speed_kmh": 318,
+        "activation_point": "Turn 13 -> Turn 14",
+        "hotspot_pct_x": 29,
+        "hotspot_pct_y": 68
+      },
+      {
+        "id": "sin-sm-5",
+        "name": "Marina Bay Back Straight (Turn 15 -> Turn 16)",
+        "length_m": 790,
+        "top_speed_kmh": 332,
+        "activation_point": "Turn 15 -> Turn 16",
+        "hotspot_pct_x": 56,
+        "hotspot_pct_y": 62
       }
     ],
     "sessions": [
@@ -1403,21 +1592,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "usa-sm-1",
-        "name": "Back Straight (To Turn 12)",
-        "length_m": 1010,
-        "top_speed_kmh": 344,
-        "activation_point": "Turn 11 -> Turn 12",
-        "hotspot_pct_x": 50,
-        "hotspot_pct_y": 26
+        "name": "Uphill Main Straight (Turn 20 -> Turn 1)",
+        "length_m": 680,
+        "top_speed_kmh": 326,
+        "activation_point": "Turn 20 -> Turn 1",
+        "hotspot_pct_x": 19,
+        "hotspot_pct_y": 70
       },
       {
         "id": "usa-sm-2",
-        "name": "Main Pit Straight (Uphill to Turn 1)",
-        "length_m": 680,
-        "top_speed_kmh": 325,
-        "activation_point": "Turn 20 -> Turn 1",
-        "hotspot_pct_x": 64,
-        "hotspot_pct_y": 76
+        "name": "1.01km Back Straight (Turn 11 -> Turn 12)",
+        "length_m": 1010,
+        "top_speed_kmh": 346,
+        "activation_point": "Turn 11 -> Turn 12",
+        "hotspot_pct_x": 65,
+        "hotspot_pct_y": 16
       }
     ],
     "sessions": [
@@ -1463,8 +1652,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 71,
     "corners": 17,
     "first_gp": 1963,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 3,
+    "straight_mode_zones_count": 3,
     "lap_record": "1:17.774 (Valtteri Bottas)",
     "lap_record_time": "1:17.774",
     "lap_record_driver": "Valtteri Bottas",
@@ -1482,21 +1671,30 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "mex-sm-1",
-        "name": "Main Straight (1.2km Altitude Blast)",
+        "name": "1.2km Main Straight (Turn 17 -> Turn 1)",
         "length_m": 1200,
         "top_speed_kmh": 364,
         "activation_point": "Turn 17 -> Turn 1",
-        "hotspot_pct_x": 48,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 52,
+        "hotspot_pct_y": 11
       },
       {
         "id": "mex-sm-2",
-        "name": "Second Straight (Turn 3 -> Turn 4)",
-        "length_m": 760,
-        "top_speed_kmh": 338,
+        "name": "Back Straight (Turn 3 -> Turn 4)",
+        "length_m": 780,
+        "top_speed_kmh": 340,
         "activation_point": "Turn 3 -> Turn 4",
-        "hotspot_pct_x": 76,
-        "hotspot_pct_y": 60
+        "hotspot_pct_x": 83,
+        "hotspot_pct_y": 56
+      },
+      {
+        "id": "mex-sm-3",
+        "name": "Stadium Approach Straight (Turn 11 -> Turn 12)",
+        "length_m": 610,
+        "top_speed_kmh": 326,
+        "activation_point": "Turn 11 -> Turn 12",
+        "hotspot_pct_x": 37,
+        "hotspot_pct_y": 38
       }
     ],
     "sessions": [
@@ -1561,21 +1759,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "bra-sm-1",
-        "name": "Reta Oposta (Back Straight)",
-        "length_m": 780,
-        "top_speed_kmh": 336,
-        "activation_point": "Turn 3 -> Descida do Lago",
-        "hotspot_pct_x": 64,
-        "hotspot_pct_y": 26
+        "name": "Subida dos Boxes Main Straight (Turn 14 -> Turn 1)",
+        "length_m": 850,
+        "top_speed_kmh": 340,
+        "activation_point": "Turn 14 (Junção) -> Turn 1 (Senna S)",
+        "hotspot_pct_x": 38,
+        "hotspot_pct_y": 14
       },
       {
         "id": "bra-sm-2",
-        "name": "Subida dos Boxes (Main Straight)",
-        "length_m": 850,
-        "top_speed_kmh": 340,
-        "activation_point": "Junção -> Senna S",
-        "hotspot_pct_x": 36,
-        "hotspot_pct_y": 72
+        "name": "Reta Oposta (Turn 3 -> Turn 4)",
+        "length_m": 780,
+        "top_speed_kmh": 336,
+        "activation_point": "Turn 3 (Curva do Sol) -> Turn 4 (Descida do Lago)",
+        "hotspot_pct_x": 38,
+        "hotspot_pct_y": 83
       }
     ],
     "sessions": [
@@ -1640,30 +1838,30 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "lv-sm-1",
-        "name": "Koval Lane Straight",
+        "name": "Koval Lane Straight (Turn 4 -> Turn 5)",
         "length_m": 820,
         "top_speed_kmh": 338,
-        "activation_point": "Exit Turn 4 -> Turn 5",
+        "activation_point": "Turn 4 -> Turn 5",
         "hotspot_pct_x": 58,
-        "hotspot_pct_y": 34
+        "hotspot_pct_y": 33
       },
       {
         "id": "lv-sm-2",
-        "name": "Las Vegas Strip (1.9km Boulevard)",
+        "name": "1.9km Las Vegas Strip (Turn 12 -> Turn 14)",
         "length_m": 1900,
         "top_speed_kmh": 358,
-        "activation_point": "Exit Turn 12 -> Turn 14",
-        "hotspot_pct_x": 45,
-        "hotspot_pct_y": 92
+        "activation_point": "Turn 12 -> Turn 14",
+        "hotspot_pct_x": 46,
+        "hotspot_pct_y": 91
       },
       {
         "id": "lv-sm-3",
-        "name": "Harmon Avenue Pit Straight",
+        "name": "Harmon Avenue Pit Straight (Turn 16 -> Turn 17)",
         "length_m": 720,
         "top_speed_kmh": 330,
-        "activation_point": "Exit Turn 16 -> Turn 1",
+        "activation_point": "Turn 16 -> Turn 17",
         "hotspot_pct_x": 92,
-        "hotspot_pct_y": 62
+        "hotspot_pct_y": 60
       }
     ],
     "sessions": [
@@ -1709,8 +1907,8 @@ export const FULL_CIRCUITS_2026 = [
     "laps": 57,
     "corners": 16,
     "first_gp": 2021,
-    "drs_zones": 2,
-    "straight_mode_zones_count": 2,
+    "drs_zones": 4,
+    "straight_mode_zones_count": 4,
     "lap_record": "1:22.384 (Lando Norris)",
     "lap_record_time": "1:22.384",
     "lap_record_driver": "Lando Norris",
@@ -1728,21 +1926,39 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "qat-sm-1",
-        "name": "Main Pit Straight (1.06km)",
+        "name": "1.07km Main Straight (Turn 16 -> Turn 1)",
         "length_m": 1068,
-        "top_speed_kmh": 342,
+        "top_speed_kmh": 344,
         "activation_point": "Turn 16 -> Turn 1",
-        "hotspot_pct_x": 44,
-        "hotspot_pct_y": 86
+        "hotspot_pct_x": 50,
+        "hotspot_pct_y": 91
       },
       {
         "id": "qat-sm-2",
-        "name": "Back Straight (To Turn 12)",
-        "length_m": 650,
-        "top_speed_kmh": 320,
-        "activation_point": "Turn 10 -> Turn 12",
-        "hotspot_pct_x": 76,
+        "name": "West Straight (Turn 3 -> Turn 4)",
+        "length_m": 560,
+        "top_speed_kmh": 318,
+        "activation_point": "Turn 3 -> Turn 4",
+        "hotspot_pct_x": 19,
         "hotspot_pct_y": 38
+      },
+      {
+        "id": "qat-sm-3",
+        "name": "Central Acceleration Zone (Turn 10 -> Turn 12)",
+        "length_m": 680,
+        "top_speed_kmh": 326,
+        "activation_point": "Turn 10 -> Turn 12",
+        "hotspot_pct_x": 58,
+        "hotspot_pct_y": 36
+      },
+      {
+        "id": "qat-sm-4",
+        "name": "Final Approach Straight (Turn 15 -> Turn 16)",
+        "length_m": 610,
+        "top_speed_kmh": 322,
+        "activation_point": "Turn 15 -> Turn 16",
+        "hotspot_pct_x": 77,
+        "hotspot_pct_y": 68
       }
     ],
     "sessions": [
@@ -1807,21 +2023,21 @@ export const FULL_CIRCUITS_2026 = [
     "straight_mode_zones": [
       {
         "id": "ad-sm-1",
-        "name": "North Back Straight (1.2km)",
+        "name": "1.2km North Straight (Turn 5 -> Turn 6)",
         "length_m": 1200,
         "top_speed_kmh": 348,
-        "activation_point": "Turn 5 -> Turn 6 Chicane",
-        "hotspot_pct_x": 46,
-        "hotspot_pct_y": 22
+        "activation_point": "Turn 5 Hairpin -> Turn 6 Chicane",
+        "hotspot_pct_x": 64,
+        "hotspot_pct_y": 38
       },
       {
         "id": "ad-sm-2",
-        "name": "South Straight (To Turn 9 Hairpin)",
+        "name": "West Marina Straight (Turn 7 -> Turn 9)",
         "length_m": 940,
-        "top_speed_kmh": 336,
-        "activation_point": "Turn 7 -> Turn 9",
-        "hotspot_pct_x": 62,
-        "hotspot_pct_y": 48
+        "top_speed_kmh": 338,
+        "activation_point": "Turn 7 -> Turn 9 (Marsa)",
+        "hotspot_pct_x": 16,
+        "hotspot_pct_y": 44
       }
     ],
     "sessions": [

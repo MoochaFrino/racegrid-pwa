@@ -10,6 +10,44 @@ import {
   Zap,
 } from "lucide-react";
 
+function TrackMapCanvas({ circuit, zones, selectedZone, onSelectZone, zoomed = false }) {
+  return (
+    <div className="relative w-full aspect-[16/9]">
+      <img
+        src={circuit.map_image_url}
+        alt={`Peta Detail Resmi ${circuit.name}`}
+        className="w-full h-full object-contain block select-none"
+      />
+
+      {/* Interactive Hotspot Pins placed directly on the 16:9 official track map */}
+      {zones.map((zone, idx) => {
+        const isSelected = selectedZone?.id === zone.id;
+        return (
+          <button
+            key={zone.id}
+            type="button"
+            onClick={() => onSelectZone(zone.id)}
+            style={{
+              left: `${zone.hotspot_pct_x ?? 50}%`,
+              top: `${zone.hotspot_pct_y ?? 50}%`,
+            }}
+            aria-label={`Pilih ${zone.name}`}
+            className={`-translate-x-1/2 -translate-y-1/2 absolute rounded-full font-black flex items-center justify-center border-2 shadow-md transition-transform ${
+              zoomed ? "w-8 h-8 text-xs" : "w-7 h-7 text-[11px]"
+            } ${
+              isSelected
+                ? "bg-[#E10600] text-white border-white scale-115 ring-4 ring-cyan-400/55 z-20"
+                : "bg-[#0e7490] text-white border-white hover:scale-110 z-10"
+            }`}
+          >
+            Z{idx + 1}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function InteractiveTrackMap({ circuit, onOpenInfo }) {
   const zones = Array.isArray(circuit?.straight_mode_zones)
     ? circuit.straight_mode_zones
@@ -61,36 +99,13 @@ export default function InteractiveTrackMap({ circuit, onOpenInfo }) {
       </div>
 
       {/* Unified Official 2026 Map with Clickable Straight Mode Hotspots */}
-      <div className="relative rounded-xl bg-[#f1f5f9] border border-zinc-300/60 overflow-hidden p-3">
-        <img
-          src={circuit.map_image_url}
-          alt={`Peta Detail Resmi ${circuit.name}`}
-          className="w-full h-52 object-contain select-none"
+      <div className="rounded-xl bg-[#f1f5f9] border border-zinc-300/60 overflow-hidden p-2">
+        <TrackMapCanvas
+          circuit={circuit}
+          zones={zones}
+          selectedZone={selectedZone}
+          onSelectZone={setSelectedZoneId}
         />
-
-        {/* Interactive Hotspot Pins placed directly on the official track map */}
-        {zones.map((zone, idx) => {
-          const isSelected = selectedZone?.id === zone.id;
-          return (
-            <button
-              key={zone.id}
-              type="button"
-              onClick={() => setSelectedZoneId(zone.id)}
-              style={{
-                left: `${zone.hotspot_pct_x ?? 50}%`,
-                top: `${zone.hotspot_pct_y ?? 50}%`,
-              }}
-              aria-label={`Pilih ${zone.name}`}
-              className={`-translate-x-1/2 -translate-y-1/2 absolute w-7 h-7 rounded-full font-black text-[11px] flex items-center justify-center border-2 shadow-md transition-transform ${
-                isSelected
-                  ? "bg-[#E10600] text-white border-white scale-115 ring-4 ring-cyan-400/55 z-20"
-                  : "bg-[#0e7490] text-white border-white hover:scale-110 z-10"
-              }`}
-            >
-              Z{idx + 1}
-            </button>
-          );
-        })}
       </div>
 
       {/* Official Circuit Facts Strip */}
@@ -219,7 +234,7 @@ export default function InteractiveTrackMap({ circuit, onOpenInfo }) {
           onClick={() => setZoomMap(false)}
         >
           <div
-            className="w-full max-w-lg rounded-2xl bg-[#f1f5f9] p-4 space-y-2 relative"
+            className="w-full max-w-xl rounded-2xl bg-[#f1f5f9] p-4 space-y-2 relative"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between text-zinc-900">
@@ -235,10 +250,12 @@ export default function InteractiveTrackMap({ circuit, onOpenInfo }) {
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <img
-              src={circuit.map_image_url}
-              alt={circuit.name}
-              className="w-full max-h-[70vh] object-contain"
+            <TrackMapCanvas
+              circuit={circuit}
+              zones={zones}
+              selectedZone={selectedZone}
+              onSelectZone={setSelectedZoneId}
+              zoomed
             />
           </div>
         </div>
