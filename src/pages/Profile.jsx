@@ -612,7 +612,31 @@ export default function Profile() {
         </div>
       </section>
 
-      {/* 4. Developer & API Links */}
+      {/* 4. About RaceGrid */}
+      <section className="p-4 rounded-xl bg-[#1a1a22] border border-zinc-800 space-y-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+          <Info className="w-4 h-4 text-[#E10600]" /> About RaceGrid
+        </h3>
+        <p className="text-xs text-zinc-300 leading-relaxed">
+          A lightweight companion app for Formula 1 2026 circuits, interactive Straight Mode track maps, and constructor lineups. Built as an installable PWA with full offline access.
+        </p>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2.5 text-center">
+            <p className="text-xs font-bold text-[#E10600]">24</p>
+            <p className="text-[10px] text-zinc-400 mt-0.5">2026 Circuits</p>
+          </div>
+          <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2.5 text-center">
+            <p className="text-xs font-bold text-white">Active Aero</p>
+            <p className="text-[10px] text-zinc-400 mt-0.5">Straight Mode</p>
+          </div>
+          <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2.5 text-center">
+            <p className="text-xs font-bold text-white">Offline</p>
+            <p className="text-[10px] text-zinc-400 mt-0.5">PWA Cache</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Developer & API Links */}
       <section className="p-4 rounded-xl bg-[#1a1a22] border border-zinc-800 space-y-3">
         <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
           <Info className="w-4 h-4 text-[#E10600]" /> Developer &amp; API Links
