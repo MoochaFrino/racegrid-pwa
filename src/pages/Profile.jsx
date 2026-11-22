@@ -612,14 +612,11 @@ export default function Profile() {
         </div>
       </section>
 
-      {/* 4. Tautan Cepat Pengembang & Tech Stack */}
+      {/* 4. Developer & API Links */}
       <section className="p-4 rounded-xl bg-[#1a1a22] border border-zinc-800 space-y-3">
         <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-          <Info className="w-4 h-4 text-[#E10600]" /> Tautan Pengembang &amp; API
+          <Info className="w-4 h-4 text-[#E10600]" /> Developer &amp; API Links
         </h3>
-        <p className="text-xs text-zinc-300 leading-relaxed">
-          RaceGrid adalah Progressive Web App (PWA) direktori sirkuit dan roster tim Formula 1 era Active Aero 2026 untuk Tugas Akhir Praktikum Pemrograman Perangkat Bergerak (PPB).
-        </p>
 
         <div className="grid grid-cols-1 gap-2">
           <a
