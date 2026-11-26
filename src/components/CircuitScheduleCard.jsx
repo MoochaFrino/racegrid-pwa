@@ -1,6 +1,13 @@
-import { useState } from "react";
-import { CalendarPlus, Flag } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CalendarPlus, Flag, Star } from "lucide-react";
 import { downloadIcsForCircuits } from "../utils/ics";
+import {
+  getSavedSessions,
+  makeSessionKey,
+  matchesSessionCategory,
+  STORAGE_EVENT,
+  toggleSavedSession,
+} from "../utils/storage";
 
 const MONTHS_SHORT = [
   "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
@@ -36,16 +43,49 @@ export default function CircuitScheduleCard({
   externalTimeMode,
   onTimeModeChange,
   compact = false,
+  nowMs: externalNowMs,
+  favoriteFilterMode = null,
 }) {
   const [internalMode, setInternalMode] = useState("my");
-  const [nowMs] = useState(() => Date.now());
+  const [internalNowMs] = useState(() => Date.now());
+  const [savedSessions, setSavedSessions] = useState(getSavedSessions);
+  const [overrideFilterMode, setOverrideFilterMode] = useState(null);
+
+  const showAllSessionsOverride =
+    Boolean(favoriteFilterMode) && overrideFilterMode === favoriteFilterMode;
+  const nowMs = externalNowMs ?? internalNowMs;
   const timeMode = externalTimeMode ?? internalMode;
   const setTimeMode = onTimeModeChange ?? setInternalMode;
 
-  const sessions = circuit?.sessions || [];
-  if (sessions.length === 0) return null;
+  useEffect(() => {
+    const sync = () => setSavedSessions(getSavedSessions());
+    window.addEventListener(STORAGE_EVENT, sync);
+    return () => window.removeEventListener(STORAGE_EVENT, sync);
+  }, []);
 
-  const nextIdx = sessions.findIndex((s) => new Date(s.end || s.start).getTime() > nowMs);
+  const allSessions = circuit?.sessions || [];
+  if (allSessions.length === 0) return null;
+
+  const isFilteringSessions =
+    !showAllSessionsOverride &&
+    favoriteFilterMode &&
+    ["sessions", "race", "qualifying", "sprint", "practice"].includes(
+      favoriteFilterMode
+    );
+
+  const visibleSessions = isFilteringSessions
+    ? allSessions.filter((s) => {
+        const key = makeSessionKey(circuit.id, s.name);
+        const isFav = savedSessions.includes(key);
+        if (!isFav) return false;
+        if (favoriteFilterMode === "sessions") return true;
+        return matchesSessionCategory(s.name, favoriteFilterMode);
+      })
+    : allSessions;
+
+  const nextSessionName = allSessions.find(
+    (s) => new Date(s.end || s.start).getTime() > nowMs
+  )?.name;
 
   return (
     <section className="rounded-2xl bg-[#16161d] border border-zinc-800 p-4 space-y-3">
@@ -88,9 +128,24 @@ export default function CircuitScheduleCard({
         </div>
       </div>
 
+      {isFilteringSessions && visibleSessions.length < allSessions.length && (
+        <div className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-amber-400/10 border border-amber-400/25 text-[11px]">
+          <span className="text-amber-300 font-semibold">
+            Menampilkan {visibleSessions.length} dari {allSessions.length} sesi (Filter Favorit)
+          </span>
+          <button
+            type="button"
+            onClick={() => setOverrideFilterMode(favoriteFilterMode)}
+            className="text-white font-bold underline hover:text-amber-200 transition"
+          >
+            Lihat Semua Sesi
+          </button>
+        </div>
+      )}
+
       {/* Sessions Timetable */}
       <div className="divide-y divide-zinc-800/80">
-        {sessions.map((session, idx) => {
+        {visibleSessions.map((session) => {
           const start = formatSessionTime(
             session.start,
             timeMode,
@@ -104,14 +159,16 @@ export default function CircuitScheduleCard({
           const isRace = session.name.toLowerCase() === "race";
           const endMs = new Date(session.end || session.start).getTime();
           const isFinished = endMs <= nowMs;
-          const isNext = idx === nextIdx;
+          const isNext = session.name === nextSessionName;
+          const sessionKey = makeSessionKey(circuit.id, session.name);
+          const isFavSession = savedSessions.includes(sessionKey);
 
           return (
             <div
               key={session.name}
-              className={`flex items-center justify-between gap-3 ${
-                compact ? "py-2.5" : "py-3"
-              }`}
+              className={`flex items-center justify-between gap-3 rounded-lg transition ${
+                compact ? "py-2.5 px-1.5" : "py-3 px-1.5"
+              } ${isFavSession ? "bg-amber-400/[0.04]" : ""}`}
             >
               <div className="flex items-center gap-3 min-w-0">
                 {/* Date badge */}
@@ -144,8 +201,8 @@ export default function CircuitScheduleCard({
                 </div>
               </div>
 
-              {/* Status Pill */}
-              <div className="shrink-0">
+              {/* Status Pill + Favorite Session Button */}
+              <div className="flex items-center gap-2 shrink-0">
                 {isNext ? (
                   <span className="px-2 py-0.5 rounded-full bg-[#E10600]/20 border border-[#E10600]/50 text-[10px] font-bold uppercase text-red-300">
                     Next
@@ -159,6 +216,28 @@ export default function CircuitScheduleCard({
                     Upcoming
                   </span>
                 )}
+
+                <button
+                  type="button"
+                  onClick={() => toggleSavedSession(circuit.id, session.name)}
+                  title={
+                    isFavSession
+                      ? `Hapus sesi ${session.name} dari favorit`
+                      : `Simpan sesi ${session.name} ke favorit`
+                  }
+                  aria-label={`Favoritkan sesi ${session.name}`}
+                  className={`p-1.5 rounded-lg border transition ${
+                    isFavSession
+                      ? "bg-amber-400/15 border-amber-400/40 text-amber-400"
+                      : "bg-[#111116] border-zinc-800 text-zinc-500 hover:text-zinc-300 hover:border-zinc-700"
+                  }`}
+                >
+                  <Star
+                    className={`w-3.5 h-3.5 ${
+                      isFavSession ? "fill-amber-400 text-amber-400" : ""
+                    }`}
+                  />
+                </button>
               </div>
             </div>
           );

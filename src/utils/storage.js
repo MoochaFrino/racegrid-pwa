@@ -1,5 +1,6 @@
 const SAVED_CIRCUITS_KEY = "racegrid_saved_circuits";
 const SAVED_TEAMS_KEY = "racegrid_saved_teams";
+const SAVED_SESSIONS_KEY = "racegrid_saved_sessions";
 const PROFILE_PREFS_KEY = "racegrid_profile_prefs";
 const VSC_DEMO_KEY = "racegrid_vsc_demo";
 
@@ -51,6 +52,42 @@ export function isTeamSaved(id) {
 
 export function toggleSavedTeam(id) {
   return toggleId(SAVED_TEAMS_KEY, id);
+}
+
+export function makeSessionKey(circuitId, sessionName) {
+  return `${Number(circuitId)}::${String(sessionName || "").trim()}`;
+}
+
+export function matchesSessionCategory(sessionName, category) {
+  const lower = String(sessionName || "").toLowerCase();
+  if (category === "race") return lower === "race";
+  if (category === "qualifying") return lower.includes("qualifying");
+  if (category === "sprint") return lower.includes("sprint");
+  if (category === "practice") return lower.includes("practice");
+  return true;
+}
+
+export function getSavedSessions() {
+  return readJsonArray(SAVED_SESSIONS_KEY).filter(
+    (item) => typeof item === "string"
+  );
+}
+
+export function isSessionSaved(circuitId, sessionName) {
+  const key = makeSessionKey(circuitId, sessionName);
+  return getSavedSessions().includes(key);
+}
+
+export function toggleSavedSession(circuitId, sessionName) {
+  const sessionKey = makeSessionKey(circuitId, sessionName);
+  const current = getSavedSessions();
+  const exists = current.includes(sessionKey);
+  const next = exists
+    ? current.filter((item) => item !== sessionKey)
+    : [...current, sessionKey];
+  localStorage.setItem(SAVED_SESSIONS_KEY, JSON.stringify(next));
+  emitStorageChange();
+  return !exists;
 }
 
 const DEFAULT_PREFS = {
